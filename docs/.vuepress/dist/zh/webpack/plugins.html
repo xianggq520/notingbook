@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常用插件 | 背书笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="由 Vuepress 驱动的静态学习笔记">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.6fe5ae40.css" as="style"><link rel="preload" href="/assets/js/app.7ec115d6.js" as="script"><link rel="preload" href="/assets/js/4.eb217dfe.js" as="script"><link rel="preload" href="/assets/js/17.97ec6e2a.js" as="script"><link rel="preload" href="/assets/js/5.843efa97.js" as="script"><link rel="prefetch" href="/assets/js/10.c3e2721f.js"><link rel="prefetch" href="/assets/js/11.050e808e.js"><link rel="prefetch" href="/assets/js/12.579cf6e0.js"><link rel="prefetch" href="/assets/js/13.9d5805aa.js"><link rel="prefetch" href="/assets/js/14.86930545.js"><link rel="prefetch" href="/assets/js/15.570d0038.js"><link rel="prefetch" href="/assets/js/16.1e1daf97.js"><link rel="prefetch" href="/assets/js/18.bdc2c75b.js"><link rel="prefetch" href="/assets/js/6.751994f5.js"><link rel="prefetch" href="/assets/js/7.db60fb18.js"><link rel="prefetch" href="/assets/js/8.7c641d1b.js"><link rel="prefetch" href="/assets/js/9.a67fcdd8.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.b9181f71.js"><link rel="prefetch" href="/assets/js/vendors~notification.8ec48a6d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6fe5ae40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">背书笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/webpack/" class="nav-link">
+  webpack
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/webpack/" class="nav-link">
+  webpack
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="常用插件"><a href="#常用插件" class="header-anchor">#</a> 常用插件</h1> <h2 id="html-webpack-plugin-插件"><a href="#html-webpack-plugin-插件" class="header-anchor">#</a> html-webpack-plugin 插件</h2> <div class="language- extra-class"><pre><code>html-webpack-plugin自动生成index.html文件，并加载bundle.js
+
+npm install -D html-webpack-plugin
+
+并在webpack.config.js中配置
+    ...
+    plugins: [
+        new HtmlWebpackPlugin()
+    ]
+    ...
+
+生成的html文件/dist/index.html
+
+    &lt;!doctype html&gt;
+        &lt;html&gt;
+
+        &lt;head&gt;
+            &lt;meta charset=&quot;utf-8&quot;&gt;
+            &lt;title&gt;Webpack App&lt;/title&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+            &lt;script defer=&quot;defer&quot; src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+        &lt;/head&gt;
+
+        &lt;body&gt;&lt;/body&gt;
+
+    &lt;/html&gt;
+</code></pre></div><h2 id="webpack-dev-server-插件"><a href="#webpack-dev-server-插件" class="header-anchor">#</a> webpack-dev-server 插件</h2> <div class="language- extra-class"><pre><code>npm install -D webpack-dev-server
+
+修改package.json，添加start命令
+
+&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;build&quot;: &quot;webpack&quot;,
+    &quot;start&quot;: &quot;webpack serve --open chrome.exe&quot;
+},
+
+cmd执行npm start，自动创建并启动一个服务dist目录的开发服务器
+</code></pre></div><h2 id="clean-webpack-plugin-插件"><a href="#clean-webpack-plugin-插件" class="header-anchor">#</a> clean-webpack-plugin 插件</h2> <div class="language- extra-class"><pre><code>npm install -D clean-webpack-plugin
+
+清空上次打包生成的文件，避免文件版本问题
+
+修改webpack.config.js
+
+    ...
+    plugins: [
+        ...
+        //清楚webpack缓存
+        new CleanWebpackPlugin()
+        ...
+    ]
+    ...
+</code></pre></div><h2 id="兼容插件-babel-core-babel-preset-env-babel-loader-core-js"><a href="#兼容插件-babel-core-babel-preset-env-babel-loader-core-js" class="header-anchor">#</a> 兼容插件@babel/core @babel/preset-env babel-loader core-js</h2> <div class="language- extra-class"><pre><code>npm install - D @babel/core @babel/preset-env babel-loader core-js
+
+需要考虑兼容低版本浏览器时使用
+
+@babel/core         核心
+@babel/preset-env   预设环境
+babel-loader        配合webpack
+core-js             配合webpack，提供fallback方案，当preset-env预设的环境不支持某些功能时，会使用core-js提供的方案
+
+修改webpack.config.js，添加babel-loader配置
+
+    rules: [
+        {
+            test: /\.ts$/,
+            // use: 'ts-loader',
+            // 多个loader，是倒序执行的
+            // 先交个ts-loader解析，然后把解析后的资源交给
+            use: [
+                // 解决兼容性，添加babel-loader
+                // 'babel-loader',
+                // 只会处理模块中的兼容性问题，webpack打包过程中生成的代码兼容性无法在此处理，需要配置webpack的兼容性：output.environment
+                {   // 详细配置一个loader
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                &quot;@babel/preset-env&quot;,
+                                {
+                                    // 兼容到具体的浏览器及版本
+                                    targets: {
+                                        &quot;chrome&quot;: &quot;88&quot;,
+                                        &quot;ie&quot;: &quot;11&quot;
+                                    },
+                                    //指定corejs的版本（主版本）
+                                    &quot;corejs&quot;: &quot;3&quot;,
+                                    // 使用corejs的方式  usage：按需加载
+                                    &quot;useBuiltIns&quot;: &quot;usage&quot;
+                                }
+                            ]
+                        ]
+                    }
+                },
+                'ts-loader' // 简单配置一个loader
+            ]
+        }
+    ]
+</code></pre></div><h2 id="less-less-loader-css-loader-style-loader"><a href="#less-less-loader-css-loader-style-loader" class="header-anchor">#</a> less less-loader css-loader style-loader</h2> <div class="language- extra-class"><pre><code>npm install -D less less-loader css-loader style-loader
+
+less less-loader    配合webpack编译less语法代码
+css-loader          处理css代码
+style-loader        将编译输出的css通过style标签注入到html中
+
+修改webpack.config.js 添加style-loader css-loader less-loader
+    ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.less$/,
+                use: [
+                    &quot;style-loader&quot;,
+                    &quot;css-loader&quot;,
+                    &quot;less-loader&quot;,
+                ]
+            }
+        ]
+    }
+    ...
+</code></pre></div><h2 id="postcss-postcss-loader-postcss-preset-env"><a href="#postcss-postcss-loader-postcss-preset-env" class="header-anchor">#</a> postcss postcss-loader postcss-preset-env</h2> <div class="language- extra-class"><pre><code>npm install -D postcss postcss-loader postcss-preset-env
+
+postcss postcss-loader  配合webpack解决css兼容性问题
+postcss-preset-env      预设要兼容的目标环境
+
+修改webpack.config.js 添加postcss-loader
+    ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.less$/,
+                use: [
+                    &quot;style-loader&quot;,
+                    &quot;css-loader&quot;,
+                    {
+                        loader: &quot;postcss-loader&quot;,
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        &quot;postcss-preset-env&quot;, // 插件
+                                        {
+                                            browsers: &quot;last 2 versions&quot; // postcss-preset-env 配置
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    &quot;less-loader&quot;,
+                ]
+            }
+        ]
+    }
+    ...
+
+    注入html中的css 具有兼容前缀
+
+        body {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background: #fba;
+        }
+</code></pre></div><h2 id="webpack-打包生成的代码的兼容性问题解决"><a href="#webpack-打包生成的代码的兼容性问题解决" class="header-anchor">#</a> webpack 打包生成的代码的兼容性问题解决</h2> <div class="language- extra-class"><pre><code>修改webpack.config.js，配置output.environment
+
+    output: {
+        path: path.resolve(__dirname, &quot;dist&quot;),
+
+        filename: &quot;bundle.js&quot;,
+
+        // webpack生成代码的兼容性配置项
+        environment: {
+            //禁用webpack生成箭头函数
+            arrowFunction: false
+        }
+    }
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.7ec115d6.js" defer></script><script src="/assets/js/4.eb217dfe.js" defer></script><script src="/assets/js/17.97ec6e2a.js" defer></script><script src="/assets/js/5.843efa97.js" defer></script>
+  </body>
+</html>

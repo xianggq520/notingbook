@@ -1,0 +1,26 @@
+{
+  "name": "notingbook",
+  "version": "1.0.0",
+  "description": "learning noting book",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [
+    "vuepress",
+    "notingbook"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "1.8.2",
+    "@vuepress/plugin-google-analytics": "1.8.2",
+    "@vuepress/plugin-medium-zoom": "1.8.2",
+    "@vuepress/plugin-pwa": "1.8.2",
+    "@vuepress/theme-vue": "1.8.2",
+    "vuepress-plugin-flowchart": "^1.4.2",
+    "vue-toasted": "^1.1.25",
+    "vuepress": "^1.8.2"
+  }
+}
